@@ -55,6 +55,7 @@
             // 
             // TopToolStrip
             // 
+            this.TopToolStrip.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
             this.TopToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1,
             this.toolStripDropDownButton2,
@@ -63,11 +64,11 @@
             this.TopToolStrip.Name = "TopToolStrip";
             this.TopToolStrip.Size = new System.Drawing.Size(503, 25);
             this.TopToolStrip.TabIndex = 0;
-            this.TopToolStrip.Text = "toolStrip1";
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Enabled = false;
             this.splitContainer1.Location = new System.Drawing.Point(0, 25);
             this.splitContainer1.Name = "splitContainer1";
             // 
@@ -123,11 +124,11 @@
             // 
             // openToolStripMenuItem
             // 
-            this.openToolStripMenuItem.Enabled = false;
             this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
