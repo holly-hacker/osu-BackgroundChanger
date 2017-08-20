@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Drawing;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,6 +17,7 @@ namespace osu_BackgroundChanger
 		public MainForm()
 		{
 			InitializeComponent();
+			DebugEnable();
 		}
 
 		#region Actions
@@ -54,6 +56,29 @@ namespace osu_BackgroundChanger
                 MessageBox.Show("An exception occured while trying to load the assembly:\n\n" + ex);
             }
 #endif
+		}
+
+		private async Task SaveFile()
+		{
+			//get save location before we do any heavy work
+			var sfd = new SaveFileDialog();
+			sfd.Filter = "osu!seasonal|osu!seasonal.dll|DLL File|*.dll|All Files|*";
+			if (sfd.ShowDialog() != DialogResult.OK) return;
+
+			//serialize all bitmaps
+			foreach (var pair in Images) {
+				byte[] bytes = await Helpers.SerializeBitmapAsync(new Bitmap(pair.Value));
+
+				//and add them to the resourceset too, while we're at it
+				//note that this will overwrite if the name matches an old element
+				Seasonal.ResourceSet.Add(new ResourceElement {
+					Name = pair.Key,
+					ResourceData = new BinaryResourceData(new UserResourceType(typeof(Bitmap).AssemblyQualifiedName, ResourceTypeCode.UserTypes), bytes)
+				});
+			}
+
+			//save module
+			Seasonal.Save(sfd.FileName);
 		}
 
 		private void ReplaceImage()
@@ -106,11 +131,41 @@ namespace osu_BackgroundChanger
 		#region Event Handlers
 		private async void openToolStripMenuItem_Click(object sender, EventArgs e) => await OpenNewDllAsync();
 		private void replaceToolStripMenuItem_Click(object sender, EventArgs e) => ReplaceImage();
+		private async void saveToolStripMenuItem_Click(object sender, EventArgs e) => await SaveFile();
 
 		private void listView1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			UpdateImagePreview();
 			UpdateEdit();
+		}
+		#endregion
+
+		#region debug
+		[Conditional("DEBUG")]
+		private void DebugEnable()
+		{
+			debugMenu.Visible = true;
+		}
+
+		private void testSerializedeserializeToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			var ofd = new OpenFileDialog();
+			ofd.Filter = "osu!seasonal.dll|osu!seasonal.dll";
+
+			if (ofd.ShowDialog() != DialogResult.OK) return;
+
+			var s = new OsuSeasonal(ofd.FileName);
+
+			foreach (var element in s.ResourceSet.ResourceElements) {
+				if (!(element.ResourceData is BinaryResourceData rd)) continue;
+
+				var deserialized = Helpers.DeserializeBitmap(rd.Data);
+				var serialised = Helpers.SerializeBitmap(deserialized);
+
+				MessageBox.Show("Original: " + rd.Data.Length + "\n" +
+				                "Serialized: " + serialised.Length + "\n" +
+				                "Difference in size: " + (rd.Data.Length - serialised.Length));
+			}
 		}
 		#endregion
 	}

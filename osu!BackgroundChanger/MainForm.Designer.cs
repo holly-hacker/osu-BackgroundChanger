@@ -43,6 +43,8 @@
 			this.toolStripDropDownButton3 = new System.Windows.Forms.ToolStripDropDownButton();
 			this.whatIsThisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.debugMenu = new System.Windows.Forms.ToolStripDropDownButton();
+			this.testSerializedeserializeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.listView1 = new System.Windows.Forms.ListView();
 			this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -60,7 +62,8 @@
 			this.TopToolStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripDropDownButton1,
             this.toolStripDropDownButton2,
-            this.toolStripDropDownButton3});
+            this.toolStripDropDownButton3,
+            this.debugMenu});
 			this.TopToolStrip.Location = new System.Drawing.Point(0, 0);
 			this.TopToolStrip.Name = "TopToolStrip";
 			this.TopToolStrip.Size = new System.Drawing.Size(503, 25);
@@ -103,6 +106,7 @@
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
 			this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.saveToolStripMenuItem.Text = "Save";
+			this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
 			// 
 			// saveAsToolStripMenuItem
 			// 
@@ -131,7 +135,7 @@
 			this.cutToolStripMenuItem.Enabled = false;
 			this.cutToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("cutToolStripMenuItem.Image")));
 			this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
-			this.cutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.cutToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
 			this.cutToolStripMenuItem.Text = "Cut";
 			this.cutToolStripMenuItem.Visible = false;
 			// 
@@ -140,7 +144,7 @@
 			this.copyToolStripMenuItem.Enabled = false;
 			this.copyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripMenuItem.Image")));
 			this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-			this.copyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.copyToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
 			this.copyToolStripMenuItem.Text = "Copy";
 			this.copyToolStripMenuItem.Visible = false;
 			// 
@@ -149,7 +153,7 @@
 			this.pasteToolStripMenuItem.Enabled = false;
 			this.pasteToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("pasteToolStripMenuItem.Image")));
 			this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
-			this.pasteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.pasteToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
 			this.pasteToolStripMenuItem.Text = "Paste";
 			this.pasteToolStripMenuItem.Visible = false;
 			// 
@@ -158,7 +162,7 @@
 			this.replaceToolStripMenuItem.Enabled = false;
 			this.replaceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("replaceToolStripMenuItem.Image")));
 			this.replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
-			this.replaceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+			this.replaceToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
 			this.replaceToolStripMenuItem.Text = "Replace";
 			this.replaceToolStripMenuItem.Click += new System.EventHandler(this.replaceToolStripMenuItem_Click);
 			// 
@@ -188,6 +192,24 @@
 			this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
 			this.aboutToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
 			this.aboutToolStripMenuItem.Text = "About";
+			// 
+			// debugMenu
+			// 
+			this.debugMenu.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+			this.debugMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.testSerializedeserializeToolStripMenuItem});
+			this.debugMenu.ImageTransparentColor = System.Drawing.Color.Magenta;
+			this.debugMenu.Name = "debugMenu";
+			this.debugMenu.Size = new System.Drawing.Size(54, 22);
+			this.debugMenu.Text = "debug";
+			this.debugMenu.Visible = false;
+			// 
+			// testSerializedeserializeToolStripMenuItem
+			// 
+			this.testSerializedeserializeToolStripMenuItem.Name = "testSerializedeserializeToolStripMenuItem";
+			this.testSerializedeserializeToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+			this.testSerializedeserializeToolStripMenuItem.Text = "Test serialize/deserialize";
+			this.testSerializedeserializeToolStripMenuItem.Click += new System.EventHandler(this.testSerializedeserializeToolStripMenuItem_Click);
 			// 
 			// splitContainer1
 			// 
@@ -268,6 +290,8 @@
         private System.Windows.Forms.ToolStripMenuItem whatIsThisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem replaceToolStripMenuItem;
+		private System.Windows.Forms.ToolStripDropDownButton debugMenu;
+		private System.Windows.Forms.ToolStripMenuItem testSerializedeserializeToolStripMenuItem;
 	}
 }
 

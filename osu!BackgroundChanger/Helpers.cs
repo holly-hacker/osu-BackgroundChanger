@@ -21,5 +21,18 @@ namespace osu_BackgroundChanger
 		{
 			return (Bitmap)new BinaryFormatter().Deserialize(new MemoryStream(data));
 		}
+
+		public static async Task<byte[]> SerializeBitmapAsync(Bitmap bm)
+		{
+			return await new TaskFactory<byte[]>().StartNew(() => SerializeBitmap(bm));
+		}
+
+		public static byte[] SerializeBitmap(Bitmap bm)
+		{
+			using (var ms = new MemoryStream()) {
+				new BinaryFormatter().Serialize(ms, bm);
+				return ms.ToArray();
+			}
+		}
 	}
 }
