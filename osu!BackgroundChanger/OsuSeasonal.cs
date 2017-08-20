@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 using dnlib.DotNet;
 using dnlib.DotNet.Resources;
@@ -7,8 +8,10 @@ namespace osu_BackgroundChanger
 {
     internal class OsuSeasonal
     {
-        private readonly ModuleDefMD _module;
         public EmbeddedResource Resource;
+
+        private readonly ModuleDefMD _module;
+        private ResourceElementSet _elementSet;
 
         public OsuSeasonal(string path)
         {
@@ -19,6 +22,10 @@ namespace osu_BackgroundChanger
         }
 
         public override string ToString() => _module.ToString();
-        public ResourceElementSet ResourceSet => ResourceReader.Read(_module, Resource.Data);
-    }
+        public ResourceElementSet ResourceSet
+        {
+            get => _elementSet ?? (_elementSet = ResourceReader.Read(_module, Resource.Data));
+            set => _elementSet = value;
+        }
+	}
 }
