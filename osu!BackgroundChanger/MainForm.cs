@@ -36,15 +36,14 @@ namespace osu_BackgroundChanger
 				//read file and save it in a variable
 				Seasonal = new OsuSeasonal(ofd.FileName);
 
-				//enable controls again
-				splitContainer1.Enabled = true;
+				//enable center controls again
+				UpdateFile();
 
 				//loop through resources
 				foreach (var element in Seasonal.ResourceSet.ResourceElements) {
-					if (!(element.ResourceData is BinaryResourceData)) continue;
+					if (!(element.ResourceData is BinaryResourceData rd)) continue;
 
-					var rs = (BinaryResourceData)element.ResourceData;
-					var bm = await Helpers.DeserializeBitmapAsync(rs.Data); //takes about 50ms
+					var bm = await Helpers.DeserializeBitmapAsync(rd.Data); //takes about 50ms
 
 					Images.Add(element.Name, bm);
 					listView1.Items.Add(element.Name, element.Name);
@@ -55,14 +54,6 @@ namespace osu_BackgroundChanger
                 MessageBox.Show("An exception occured while trying to load the assembly:\n\n" + ex);
             }
 #endif
-		}
-
-		private void UpdateImagePreview()
-		{
-			//set imageview to selected image
-			pictureBox1.Image = listView1.SelectedItems.Count != 0
-				? Images[listView1.SelectedItems[0].ImageKey]
-				: null;
 		}
 
 		private void ReplaceImage()
@@ -81,12 +72,46 @@ namespace osu_BackgroundChanger
 			//force update
 			listView1_SelectedIndexChanged(this, null);
 		}
+
+		private void UpdateImagePreview()
+		{
+			//set imageview to selected image
+			pictureBox1.Image = listView1.SelectedItems.Count != 0
+				? Images[listView1.SelectedItems[0].ImageKey]
+				: null;
+		}
+
+		private void UpdateFile()
+		{
+			bool enable = Seasonal != null;
+
+			splitContainer1.Enabled = enable;
+			saveToolStripMenuItem.Enabled = enable;
+
+			if (!enable) {
+				listView1.Clear();
+				pictureBox1.Image = null;
+			}
+		}
+
+		private void UpdateEdit()
+		{
+			bool enable = listView1.SelectedItems.Count != 0;
+			bool multi = listView1.SelectedItems.Count > 1;
+
+			replaceToolStripMenuItem.Enabled = enable;
+		}
 		#endregion
 
 		#region Event Handlers
 		private async void openToolStripMenuItem_Click(object sender, EventArgs e) => await OpenNewDllAsync();
-		private void listView1_SelectedIndexChanged(object sender, EventArgs e) => UpdateImagePreview();
 		private void replaceToolStripMenuItem_Click(object sender, EventArgs e) => ReplaceImage();
+
+		private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			UpdateImagePreview();
+			UpdateEdit();
+		}
 		#endregion
 	}
 }

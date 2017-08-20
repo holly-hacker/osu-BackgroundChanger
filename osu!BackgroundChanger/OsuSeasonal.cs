@@ -13,8 +13,8 @@ namespace osu_BackgroundChanger
         private readonly ModuleDefMD _module;
         private ResourceElementSet _elementSet;
 
-        public OsuSeasonal(string path)
-        {
+        public OsuSeasonal(string path) //TODO: save path in string? for Save/Save as 
+		{
             _module = ModuleDefMD.Load(path);
             if (_module.Resources.Count != 1) throw new Exception("Didn't find the right amount of resources.");
 

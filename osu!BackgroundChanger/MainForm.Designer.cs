@@ -84,14 +84,15 @@
 			this.newToolStripMenuItem.Enabled = false;
 			this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
 			this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-			this.newToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.newToolStripMenuItem.Text = "New";
+			this.newToolStripMenuItem.Visible = false;
 			// 
 			// openToolStripMenuItem
 			// 
 			this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
 			this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-			this.openToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.openToolStripMenuItem.Text = "Open";
 			this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
 			// 
@@ -100,7 +101,7 @@
 			this.saveToolStripMenuItem.Enabled = false;
 			this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-			this.saveToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.saveToolStripMenuItem.Text = "Save";
 			// 
 			// saveAsToolStripMenuItem
@@ -108,8 +109,9 @@
 			this.saveAsToolStripMenuItem.Enabled = false;
 			this.saveAsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveAsToolStripMenuItem.Image")));
 			this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-			this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
+			this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.saveAsToolStripMenuItem.Text = "Save As...";
+			this.saveAsToolStripMenuItem.Visible = false;
 			// 
 			// toolStripDropDownButton2
 			// 
@@ -131,6 +133,7 @@
 			this.cutToolStripMenuItem.Name = "cutToolStripMenuItem";
 			this.cutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.cutToolStripMenuItem.Text = "Cut";
+			this.cutToolStripMenuItem.Visible = false;
 			// 
 			// copyToolStripMenuItem
 			// 
@@ -139,6 +142,7 @@
 			this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
 			this.copyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.copyToolStripMenuItem.Text = "Copy";
+			this.copyToolStripMenuItem.Visible = false;
 			// 
 			// pasteToolStripMenuItem
 			// 
@@ -147,9 +151,11 @@
 			this.pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
 			this.pasteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
 			this.pasteToolStripMenuItem.Text = "Paste";
+			this.pasteToolStripMenuItem.Visible = false;
 			// 
 			// replaceToolStripMenuItem
 			// 
+			this.replaceToolStripMenuItem.Enabled = false;
 			this.replaceToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("replaceToolStripMenuItem.Image")));
 			this.replaceToolStripMenuItem.Name = "replaceToolStripMenuItem";
 			this.replaceToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
