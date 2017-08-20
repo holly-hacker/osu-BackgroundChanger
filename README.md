@@ -1,4 +1,4 @@
-# osu-BackgroundChanger
+# osu!BackgroundChanger
 Allows you to change your osu! background without supporter status!
 
 ## Usage
