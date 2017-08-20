@@ -1,6 +1,6 @@
 ﻿namespace osu_BackgroundChanger
 {
-    partial class Form1
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.TopToolStrip = new System.Windows.Forms.ToolStrip();
 			this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
 			this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -222,14 +222,14 @@
 			this.pictureBox1.TabIndex = 0;
 			this.pictureBox1.TabStop = false;
 			// 
-			// Form1
+			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(503, 264);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.TopToolStrip);
-			this.Name = "Form1";
+			this.Name = "MainForm";
 			this.Text = "osu!BackgroundChanger";
 			this.TopToolStrip.ResumeLayout(false);
 			this.TopToolStrip.PerformLayout();

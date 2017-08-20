@@ -1,29 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlTypes;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using dnlib.DotNet.Resources;
 
 namespace osu_BackgroundChanger
 {
-	internal partial class Form1 : Form
+	internal partial class MainForm : Form
 	{
 		public OsuSeasonal Seasonal;
 		public Dictionary<string, Image> Images;
 
-		public Form1()
+		public MainForm()
 		{
 			InitializeComponent();
 		}
 
-		private async void openToolStripMenuItem_Click(object sender, EventArgs e)
+		#region Actions
+		private async Task OpenNewDllAsync()
 		{
 			var ofd = new OpenFileDialog();
 			ofd.Filter = "osu!seasonal.dll|osu!seasonal.dll";
 
-			if (ofd.ShowDialog() != DialogResult.OK) return; 
+			if (ofd.ShowDialog() != DialogResult.OK) return;
 
 #if !DEBUG
             try
@@ -56,7 +57,7 @@ namespace osu_BackgroundChanger
 #endif
 		}
 
-		private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+		private void UpdateImagePreview()
 		{
 			//set imageview to selected image
 			pictureBox1.Image = listView1.SelectedItems.Count != 0
@@ -64,7 +65,7 @@ namespace osu_BackgroundChanger
 				: null;
 		}
 
-		private void replaceToolStripMenuItem_Click(object sender, EventArgs e)
+		private void ReplaceImage()
 		{
 			var ofd = new OpenFileDialog();
 			ofd.Filter = "Jpeg files|*.jpg;*.jpeg";
@@ -80,5 +81,12 @@ namespace osu_BackgroundChanger
 			//force update
 			listView1_SelectedIndexChanged(this, null);
 		}
+		#endregion
+
+		#region Event Handlers
+		private async void openToolStripMenuItem_Click(object sender, EventArgs e) => await OpenNewDllAsync();
+		private void listView1_SelectedIndexChanged(object sender, EventArgs e) => UpdateImagePreview();
+		private void replaceToolStripMenuItem_Click(object sender, EventArgs e) => ReplaceImage();
+		#endregion
 	}
 }
