@@ -127,6 +127,19 @@ namespace osu_BackgroundChanger
             listView1_SelectedIndexChanged(this, null);
         }
 
+        private void ClearImage()
+        {
+            var imageKeys = listView1.SelectedItems.Cast<ListViewItem>().Select(i => i.ImageKey);
+            foreach (string key in imageKeys)
+                Images[key] = new Bitmap(1, 1);
+        }
+
+        private void ClearAllImages()
+        {
+            foreach (var key in Images.Keys.ToArray())
+                Images[key] = new Bitmap(1, 1);
+        }
+
         private void UpdateImagePreview()
         {
             //set imageview to selected image
@@ -141,6 +154,7 @@ namespace osu_BackgroundChanger
 
             splitContainer1.Enabled = enable;
             saveToolStripMenuItem.Enabled = enable;
+            clearAllToolStripMenuItem.Enabled = enable;
 
             if (!enable) {
                 listView1.Clear();
@@ -155,6 +169,7 @@ namespace osu_BackgroundChanger
 
             replaceToolStripMenuItem.Enabled = enable;
             exportToolStripMenuItem.Enabled = enable;
+            clearToolStripMenuItem.Enabled = enable;
         }
 
         private void ShowAbout() => new AboutBox().ShowDialog();
@@ -171,6 +186,8 @@ namespace osu_BackgroundChanger
         private void exportToolStripMenuItem_Click(object sender, EventArgs e) => ExportImages();
 
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e) => ReplaceImage();
+        private void clearToolStripMenuItem_Click(object sender, EventArgs e) => ClearImage();
+        private void clearAllToolStripMenuItem_Click(object sender, EventArgs e) => ClearAllImages();
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e) => ShowAbout();
         private void whatIsThisToolStripMenuItem_Click(object sender, EventArgs e) => ShowHelp();
