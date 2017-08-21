@@ -181,11 +181,11 @@ namespace osu_BackgroundChanger
         }
 
         private void ShowAbout() => new AboutBox().ShowDialog();
+
         private void ShowHelp() => MessageBox.Show("This program allows you to use your own images as \"seasonal\" images. \"Seasonal\" images "
                                                    + "are those you suddenly see in the main menu after an osu! update.\n\n"
-                                                   + "Go ahead and load an osu!seasonal.dll file and see what it contains!", 
-                                                    "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                                                   + "Go ahead and load an osu!seasonal.dll file and see what it contains!",
+            "Help", MessageBoxButtons.OK, MessageBoxIcon.Information);
         #endregion
 
         #region Event Handlers
@@ -201,6 +201,7 @@ namespace osu_BackgroundChanger
         private void whatIsThisToolStripMenuItem_Click(object sender, EventArgs e) => ShowHelp();
 
         private void listView1_MouseDoubleClick(object sender, MouseEventArgs e) => ReplaceImage();
+
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateImagePreview();
