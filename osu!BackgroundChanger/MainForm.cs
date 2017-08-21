@@ -63,7 +63,8 @@ namespace osu_BackgroundChanger
         {
             //get save location before we do any heavy work
             var sfd = new SaveFileDialog();
-            sfd.Filter = "osu!seasonal|osu!seasonal.dll|DLL File|*.dll|All Files|*";
+            sfd.Filter = "DLL File|*.dll|All Files|*";
+            sfd.FileName = "osu!seasonal.dll";
             if (sfd.ShowDialog() != DialogResult.OK) return;
 
             //serialize all bitmaps
@@ -100,8 +101,9 @@ namespace osu_BackgroundChanger
                 var selectedImage = Images[listView1.SelectedItems[0].ImageKey];
 
                 var sfd = new SaveFileDialog();
-                sfd.Filter = "JPEG files|*.jpg|All Files|*";
+                sfd.Filter = "JPEG files|*.jpg;*.jpeg|All Files|*";
                 sfd.Title = "Export";
+                sfd.FileName = listView1.SelectedItems[0].ImageKey + ".jpg";
                 if (sfd.ShowDialog() != DialogResult.OK) return;
 
                 var path = sfd.FileName;
