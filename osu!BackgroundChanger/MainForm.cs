@@ -156,6 +156,8 @@ namespace osu_BackgroundChanger
             replaceToolStripMenuItem.Enabled = enable;
             exportToolStripMenuItem.Enabled = enable;
         }
+
+        private void ShowAbout() => new AboutBox().ShowDialog();
         #endregion
 
         #region Event Handlers
@@ -164,6 +166,8 @@ namespace osu_BackgroundChanger
         private void exportToolStripMenuItem_Click(object sender, EventArgs e) => ExportImages();
 
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e) => ReplaceImage();
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e) => ShowAbout();
 
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
