@@ -187,18 +187,18 @@
   </data>
   <data name="exportToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwaAAACKElEQVQ4T5WSS28SURiGjf/A
-        lVtRqe1GNLpx66IxRVpMFKNb/Q3+hQEVmvgPXGnitrFpNG0xVZsYDQrCMANzA+bCAAOUy9BAXr8zIG2D
-        JHXxzLlw3meG7ztnAMywGH7+zB+KdS/djWIeC2uxln819mQmfGGFO7d070VPkDU0nDpa7SY63Q76/R5c
-        t49er4tO5wAZQfUkx4NPiX1idC2SGFVtE4KQnZCDWOAn5CBJAppNB3R2Gl5mi78EIgkYpg5RzKKoCJC1
-        ApRSEWpZgkLzAolqteoJQXISfkUskOBQKylQNQpQsKQrqBgaKmYJZRo1TYZulMcCepwlGmxB3CLOByLx
-        QUESYVkGhVXoVhmWbcCqmTBtHSZ9naxIY4EvyN25shY7oBEXg9zIt8INAw/iyIs5tNuOF65SsO7YaDTr
-        3uhQcdnvnmAxHFPfvU+Cz/9Gngr2PfUTNx6tg6d5s+VgMHBnsG3rSEBvHbKgSBusOKn0r6ngw/bmP/m4
-        szUr0PUyMnwKaT6Nq/df4vO3HyTJzWXr0z78q9EjgeM0kBXSEKUc4q83cf1hApdD0bncfLwOf4g7nApc
-        1wUvZqjveeq37LXMqhmwG1WviKyYWkWBpIreDZXlAgmi7lQwHA7punYnV3Z8bd1Bf1I4mrM17fcJdlZR
-        pZOC5N429r4mT8eXXa9j9FcGrI3y241dKkzW2zwN7OybjR1QtsRu4u2lcExgLfkfKFz0BbnlP9Tu9D6s
-        dT2fAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
+        dHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAIoSURBVDhPlZJLbxJRGIaN/8CVW1Gp7UY0unHrojFF
+        WkwUo1v9Df6FARWa+A9caeK2sWk0bTFVmxgNCsIwA3MD5sIAA5TL0EBevzMgbYMkdfHMuXDeZ4bvO2cA
+        zLAYfv7MH4p1L92NYh4La7GWfzX2ZCZ8YYU7t3TvRU+QNTScOlrtJjrdDvr9Hly3j16vi07nABlB9STH
+        g0+JfWJ0LZIYVW0TgpCdkINY4CfkIEkCmk0HdHYaXmaLvwQiCRimDlHMoqgIkLUClFIRalmCQvMCiWq1
+        6glBchJ+RSyQ4FArKVA1ClCwpCuoGBoqZgllGjVNhm6UxwJ6nCUabEHcIs4HIvFBQRJhWQaFVehWGZZt
+        wKqZMG0dJn2drEhjgS/I3bmyFjugEReD3Mi3wg0DD+LIizm0244XrlKw7thoNOve6FBx2e+eYDEcU9+9
+        T4LP/0aeCvY99RM3Hq2Dp3mz5WAwcGewbetIQG8dsqBIG6w4qfSvqeDD9uY/+bizNSvQ9TIyfAppPo2r
+        91/i87cfJMnNZevTPvyr0SOB4zSQFdIQpRzirzdx/WECl0PRudx8vA5/iDucClzXBS9mqO956rfstcyq
+        GbAbVa+IrJhaRYGkit4NleUCCaLuVDAcDum6didXdnxt3UF/UjiaszXt9wl2VlGlk4Lk3jb2viZPx5dd
+        r2P0VwasjfLbjV0qTNbbPA3s7JuNHVC2xG7i7aVwTGAt+R8oXPQFueU/1O70Pqx1PZ8AAAAASUVORK5C
+        YII=
 </value>
   </data>
   <data name="cutToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

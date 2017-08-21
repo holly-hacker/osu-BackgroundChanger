@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -58,7 +59,7 @@ namespace osu_BackgroundChanger
 #endif
         }
 
-        private async Task SaveFile()
+        private async Task SaveFileAsync()
         {
             //get save location before we do any heavy work
             var sfd = new SaveFileDialog();
@@ -84,9 +85,29 @@ namespace osu_BackgroundChanger
 
         private void ExportImages()
         {
+            Debug.Assert(listView1.SelectedItems.Count > 0);
+
             bool multi = listView1.SelectedItems.Count > 1;
 
-            if (!multi) { }
+            if (!multi) {
+                //only single item selected
+                var selectedImage = Images[listView1.SelectedItems[0].ImageKey];
+
+                var sfd = new SaveFileDialog();
+                sfd.Filter = "JPEG files|*.jpg|All Files|*";
+                if (sfd.ShowDialog() != DialogResult.OK) return;
+
+                var path = sfd.FileName;
+                selectedImage.Save(path);
+            }
+            else {
+                //multiple images selected
+                var fbd = new FolderBrowserDialog();
+                if (fbd.ShowDialog() != DialogResult.OK) return;
+
+                var imageKeys = listView1.SelectedItems.Cast<ListViewItem>().Select(i => i.ImageKey);
+                Parallel.ForEach(imageKeys, key => Images[key].Save(fbd.SelectedPath + "/" + key + ".jpg"));
+            }
         }
 
         private void ReplaceImage()
@@ -139,7 +160,7 @@ namespace osu_BackgroundChanger
 
         #region Event Handlers
         private async void openToolStripMenuItem_Click(object sender, EventArgs e) => await OpenNewDllAsync();
-        private async void saveToolStripMenuItem_Click(object sender, EventArgs e) => await SaveFile();
+        private async void saveToolStripMenuItem_Click(object sender, EventArgs e) => await SaveFileAsync();
         private void exportToolStripMenuItem_Click(object sender, EventArgs e) => ExportImages();
 
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e) => ReplaceImage();
