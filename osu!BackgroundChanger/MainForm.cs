@@ -83,6 +83,12 @@ namespace osu_BackgroundChanger
             Seasonal.Save(sfd.FileName);
         }
 
+        private void SelectAll()
+        {
+            foreach (ListViewItem item in listView1.Items)
+                item.Selected = true;
+        }
+
         private void ExportImages()
         {
             Debug.Assert(listView1.SelectedItems.Count > 0);
@@ -162,6 +168,7 @@ namespace osu_BackgroundChanger
 
             splitContainer1.Enabled = enable;
             saveToolStripMenuItem.Enabled = enable;
+            selectAllToolStripMenuItem.Enabled = enable;
             clearAllToolStripMenuItem.Enabled = enable;
 
             if (!enable) {
@@ -193,6 +200,7 @@ namespace osu_BackgroundChanger
         private async void saveToolStripMenuItem_Click(object sender, EventArgs e) => await SaveFileAsync();
         private void exportToolStripMenuItem_Click(object sender, EventArgs e) => ExportImages();
 
+        private void selectAllToolStripMenuItem_Click(object sender, EventArgs e) => SelectAll();
         private void replaceToolStripMenuItem_Click(object sender, EventArgs e) => ReplaceImage();
         private void clearToolStripMenuItem_Click(object sender, EventArgs e) => ClearImage();
         private void clearAllToolStripMenuItem_Click(object sender, EventArgs e) => ClearAllImages();
