@@ -18,7 +18,7 @@ namespace osu_BackgroundChanger
 
         public OsuSeasonal(string path) //TODO: save path in string? for Save/Save as 
         {
-            _module = ModuleDefMD.Load(path);
+            _module = ModuleDefMD.Load(File.ReadAllBytes(path));
             if (_module.Resources.Count != 1) throw new Exception("Didn't find the right amount of resources.");
 
             Resource = _module.Resources[0] as EmbeddedResource ?? throw new Exception("Didn't find any resources in the file.");
