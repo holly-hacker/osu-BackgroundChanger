@@ -113,6 +113,8 @@ namespace osu_BackgroundChanger
 
         private void ReplaceImage()
         {
+            if (listView1.SelectedItems.Count == 0) return;
+
             var ofd = new OpenFileDialog();
             ofd.Filter = "Jpeg files|*.jpg;*.jpeg";
             ofd.Title = "Replace";
@@ -198,6 +200,7 @@ namespace osu_BackgroundChanger
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e) => ShowAbout();
         private void whatIsThisToolStripMenuItem_Click(object sender, EventArgs e) => ShowHelp();
 
+        private void listView1_MouseDoubleClick(object sender, MouseEventArgs e) => ReplaceImage();
         private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         {
             UpdateImagePreview();
