@@ -190,11 +190,11 @@
             // 
             // whatIsThisToolStripMenuItem
             // 
-            this.whatIsThisToolStripMenuItem.Enabled = false;
             this.whatIsThisToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("whatIsThisToolStripMenuItem.Image")));
             this.whatIsThisToolStripMenuItem.Name = "whatIsThisToolStripMenuItem";
             this.whatIsThisToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.whatIsThisToolStripMenuItem.Text = "What is this?";
+            this.whatIsThisToolStripMenuItem.Click += new System.EventHandler(this.whatIsThisToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
