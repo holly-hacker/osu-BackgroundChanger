@@ -95,6 +95,7 @@ namespace osu_BackgroundChanger
 
                 var sfd = new SaveFileDialog();
                 sfd.Filter = "JPEG files|*.jpg|All Files|*";
+                sfd.Title = "Export";
                 if (sfd.ShowDialog() != DialogResult.OK) return;
 
                 var path = sfd.FileName;
@@ -114,6 +115,7 @@ namespace osu_BackgroundChanger
         {
             var ofd = new OpenFileDialog();
             ofd.Filter = "Jpeg files|*.jpg;*.jpeg";
+            ofd.Title = "Replace";
 
             if (ofd.ShowDialog() != DialogResult.OK) return;
 
@@ -132,12 +134,16 @@ namespace osu_BackgroundChanger
             var imageKeys = listView1.SelectedItems.Cast<ListViewItem>().Select(i => i.ImageKey);
             foreach (string key in imageKeys)
                 Images[key] = new Bitmap(1, 1);
+
+            UpdateImagePreview();
         }
 
         private void ClearAllImages()
         {
             foreach (var key in Images.Keys.ToArray())
                 Images[key] = new Bitmap(1, 1);
+
+            UpdateImagePreview();
         }
 
         private void UpdateImagePreview()
