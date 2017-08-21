@@ -10,5 +10,11 @@ Allows you to change your osu! background without supporter status!
 6. Make sure the `Seasonal backgrounds` option in osu! is set to `Always`!
 
 ## Changelog
+* **v1.1**
+  * Add exporting of images
+  * Add clearing of images
+  * Add keyboard shortcuts for nearly every action
+  * Replace images on doubleclick
+  * Add a shitty "About" dialog and help message
 * **v1.0**
   * Initial release.
